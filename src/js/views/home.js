@@ -1,31 +1,50 @@
-import React, {useEffect, useContext} from "react";
+import React, {useEffect, useContext, useState} from "react";
 import rigoImage from "../../img/rigo-baby.jpg";
 import "../../styles/home.css";
 import { Context } from "../store/appContext";
+import Cards from "../component/Cards";
 
 export const Home = () => {
+	const { store, actions } = useContext(Context);
+	const [currentIndex,setCurrentIndex] = useState(0);
+	useEffect(() => {
+		actions.fetchStarWars("planets");
+		actions.fetchStarWars("people");
+		actions.fetchStarWars("vehicles");
+	}, []);
 
-	const {store,actions}=useContext(Context)
-	useEffect(()=>{
-		actions.fetchStarWars("planets")
-		actions.fetchStarWars("people")
-		actions.fetchStarWars("vehicles")
-	},[])
+	const handleNext = () => {
+        if (store.people && store.people.length > 0) {
+            const lastIndex = Math.ceil(store.people.length / 4) - 1;
+            if (currentIndex < lastIndex) {
+                setCurrentIndex(currentIndex + 1);
+            }
+        }
+    };
 
-	return(
-	<div className="text-left mt-5">
-		<h1>Characters</h1>
-		<div className="card" style="width: 18rem;">
-			<img src="https://starwars-visualguide.com/assets/img/planets/2.jpg" className="card-img-top" alt="..."/>
-			<div className="card-body">
-				<h5 className="card-title">Card title</h5>
-				<p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-				<a href="#" className="btn btn-primary">Go somewhere</a>
-			</div>
-		</div>
-		<a href="#" className="btn btn-success">
-			If you see this green button, bootstrap is working
-		</a>
-	</div>
-	);
-}
+    const handlePrev = () => {
+        if (store.people && store.people.length > 0) {
+            if (currentIndex > 0) {
+                setCurrentIndex(currentIndex - 1);
+            }
+        }
+    };
+
+    return (
+        <div className="text-left mt-5">
+            <h1>Characters</h1>
+			<Cards data={store.people} currentIndex={currentIndex} />
+            <div className="mt-3 text-center">
+                <button className="btn btn-primary mr-2" onClick={handlePrev} disabled={currentIndex === 0}>
+                    Prev
+                </button>
+                <button
+                    className="btn btn-primary"
+                    onClick={handleNext}
+                    disabled={store.people ? currentIndex === Math.ceil(store.people.length / 4) - 1 : true}>
+                    Next
+                </button>
+            </div>
+        </div>
+    );
+};
