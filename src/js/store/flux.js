@@ -1,7 +1,7 @@
 const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
-
+			favorites :[]
 		},
 		actions: {
 			fetchStarWars:async (element,page=1,limit=10)=>{
@@ -23,12 +23,12 @@ const getState = ({ getStore, getActions, setStore }) => {
 			markFavorite:(elemenId,name)=>{
 				let {favorites} = getStore()
 				//verificando si el favorito exista
-				if(!favorites.some(item=>item.id==elemenId)){
+				if(!favorites.some(person=>person.id==elemenId)){
 					// en caso de que no exista, se agg...
 					setStore({favorites:[...favorites,{id:elemenId, name}]})
 				}else{
 					//en caso que si se elimina
-					let index=favorites.findIndex(item=>item.id==elemenId)
+					let index=favorites.findIndex(person=>person.id==elemenId)
 					let newFavorites=[...favorites]
 					newFavorites.splice(index,1)
 					setStore({favorites:newFavorites})

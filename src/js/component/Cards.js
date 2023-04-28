@@ -2,8 +2,10 @@ import React, { useContext } from "react";
 import { Context } from "../store/appContext";
 
 const Cards = ({ data, currentIndex }) => {
-  const { actions } = useContext(Context);
-
+  const { store, actions } = useContext(Context);
+  function checkFavorites (){
+    return store.favorites.some(person=>person.id==`${data}/${person.uid}`)
+  }
   return (
     <div className="d-flex flex-wrap justify-content-center align-items-center">
       {data &&
@@ -24,9 +26,9 @@ const Cards = ({ data, currentIndex }) => {
                 <button
                   href="#"
                   className="btn btn-outline-warning"
-                  onClick={() => actions.markFavorite(`${element}/${item.uid}`, item.name)}
+                  onClick={() => actions.markFavorite(`${index}/${person.uid}`, person.name)}
                 >
-                  <i className="bi bi-heart-fill"></i>
+                  <i className={`bi bi-hearts${checkFavorites?"-fill":""}`}></i>
                 </button>
                 
               </div>
