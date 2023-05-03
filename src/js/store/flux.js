@@ -13,7 +13,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 					let data = await response.json()
 					let obj ={}
-					obj[element]=data.results
+					obj[element]=data.results.map(item=>({...item,img:`https://starwars-visualguide.com/assets/img/${element=="people"?"characters":element}/${item.uid}.jpg`
+				}))
 					setStore(obj)
 				}catch (error){
 					console.error(error)
