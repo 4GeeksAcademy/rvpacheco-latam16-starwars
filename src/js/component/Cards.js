@@ -1,7 +1,8 @@
 import React, { useContext } from "react";
+import { Link } from "react-router-dom";
 import { Context } from "../store/appContext";
 
-const Cards = ({ data, currentIndex, type }) => {
+export const Cards = ({ data, currentIndex, type }) => {
   const { store, actions } = useContext(Context);
 
   function checkFavorites(index, uid) {
@@ -15,11 +16,9 @@ const Cards = ({ data, currentIndex, type }) => {
           .slice(currentIndex * 3, (currentIndex + 1) * 3)
           .map((item, index) => (
             <div className="card m-4" style={{ width: "18rem" }} key={index}>
-              <img
-                src={item.img}
-                className="card-img-top"
-                alt="..."
-              />
+              <Link to={`/details/${type}/${index+1}`} className="card-link">
+                <img src={item.img} className="card-img-top" alt="..." />
+              </Link>
               <div className="card-body">
                 <h5 className="card-title">{item.name}</h5>
                 <p className="card-text">
