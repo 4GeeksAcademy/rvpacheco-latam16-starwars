@@ -1,3 +1,17 @@
-/* 
-    General Styles
-*/
+.container{
+    background-image: url("https://images.pexels.com/photos/1257860/pexels-photo-1257860.jpeg?cs=srgb&dl=pexels-philippe-donn-1257860.jpg&fm=jpg");
+    background-size: cover;
+    background-position: center;
+  }
+
+  
+
+  @font-face {
+    font-family: 'Star Jedi';
+    src: url('/workspaces/rvpacheco-latam16-starwars/src/fonts/StarJedi-DGRW.ttf') format('truetype'); /* Ajusta la ruta al archivo de fuente según la ubicación en tu proyecto */
+  }
+
+  .category-title {
+    color: yellow;
+    font-family: 'Star Jedi', sans-serif;
+  }

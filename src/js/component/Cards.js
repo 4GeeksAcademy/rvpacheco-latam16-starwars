@@ -14,9 +14,9 @@ export const Cards = ({ data, currentIndex, type }) => {
       {data &&
         data
           .slice(currentIndex * 3, (currentIndex + 1) * 3)
-          .map((item, index) => (
+          .map((item, index,uid) => (
             <div className="card m-4" style={{ width: "18rem" }} key={index}>
-              <Link to={`/details/${type}/${index+1}`} className="card-link">
+              <Link to={`/details/${type}/${item.uid}`} className="card-link">
                 <img src={item.img} className="card-img-top" alt="..." />
               </Link>
               <div className="card-body">

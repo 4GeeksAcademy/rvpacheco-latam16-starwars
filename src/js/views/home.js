@@ -7,13 +7,17 @@ export const Home = () => {
   const [currentIndex, setCurrentIndex] = useState({
     people: 0,
     vehicles: 0,
-    planets: 0
+    planets: 0,
+    species: 0,
+    starships: 0
   });
 
   useEffect(() => {
     actions.fetchStarWars("people");
     actions.fetchStarWars("vehicles");
     actions.fetchStarWars("planets");
+    actions.fetchStarWars("species");
+    actions.fetchStarWars("starships");
   }, []);
 
   const handleNext = category => {
@@ -36,16 +40,18 @@ export const Home = () => {
   };
 
   const categories = [
-    { key: "people", title: "Characters" },
+    { key: "people", title: "Characters @" },
     { key: "vehicles", title: "Vehicles" },
-    { key: "planets", title: "Planets" }
+    { key: "planets", title: "Planets" },
+    { key: "species", title: "Species" },
+    { key: "starships", title: "Starships" }
   ];
 
   return (
-    <div className="container">
+    <div className="container ">
       {categories.map(category => (
         <React.Fragment key={category.key}>
-          <h2>{category.title}</h2>
+          <h2 className="category-title">{category.title}</h2>
           <Cards
             data={store[category.key]}
             currentIndex={currentIndex[category.key]}

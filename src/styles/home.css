@@ -1,0 +1,4 @@
+@font-face {
+    font-family: 'Star Jedi';
+    src: url('/workspaces/rvpacheco-latam16-starwars/src/fonts/Starjedi.ttf') format('truetype'); /* Ajusta la ruta al archivo de fuente según la ubicación en tu proyecto */
+  }
