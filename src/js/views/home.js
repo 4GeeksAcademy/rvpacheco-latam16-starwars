@@ -40,7 +40,7 @@ export const Home = () => {
   };
 
   const categories = [
-    { key: "people", title: "Characters @" },
+    { key: "people", title: "Characters" },
     { key: "vehicles", title: "Vehicles" },
     { key: "planets", title: "Planets" },
     { key: "species", title: "Species" },

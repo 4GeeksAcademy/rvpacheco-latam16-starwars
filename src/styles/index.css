@@ -1,10 +1,4 @@
-.container{
-    background-image: url("https://images.pexels.com/photos/1257860/pexels-photo-1257860.jpeg?cs=srgb&dl=pexels-philippe-donn-1257860.jpg&fm=jpg");
-    background-size: cover;
-    background-position: center;
-  }
 
-  
 
   @font-face {
     font-family: 'Star Jedi';
@@ -12,6 +6,6 @@
   }
 
   .category-title {
-    color: yellow;
+    color: black;
     font-family: 'Star Jedi', sans-serif;
   }
