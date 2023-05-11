@@ -14,7 +14,7 @@ const SpeciesCard = ({ species }) => {
       <div className="card-body">
         <h5 className="card-title" style={{ fontSize: "1.2rem", fontWeight: "bold", margin: "5px 0" }}>{species.name}</h5>
         <p className="card-text" style={{ margin: "5px 0" }}>Classification: {species.classification}</p>
-        <p className="card-text" style={{ margin: "5px 0" }}>Designation: {species.designation}</p>
+        <p className="card-text" style={{ margin: "5px 0" }}>Language: {species.language}</p>
         
       </div>
     </div>

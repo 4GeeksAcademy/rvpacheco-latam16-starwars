@@ -28,13 +28,14 @@ const DropdownMenu = () => {
 export const Navbar = () => {
   return (
     <nav className="navbar navbar-light bg-light mb-3">
+      <Link to="/" className="d-flex justify-content-start btn btn-success">Home</Link>
       <div className="dropdown ms-auto">
         <button className="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
           Favorites
         </button>
         <DropdownMenu />
       </div>
-      <Link to="/" className="btn btn-primary">Home</Link>
+      
     </nav>
   );
 };
