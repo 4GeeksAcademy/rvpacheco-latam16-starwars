@@ -13,10 +13,10 @@ const DropdownMenu = () => {
     <ul className="dropdown-menu dropdown-menu-end">
       {store.favorites.map((favorite, index) => (
         <li key={index}>
-          <a className="dropdown-item" href="#">
+          <Link to={`/details/${favorite.id}`} className="dropdown-item">
             {favorite.name}
-          </a>
-          <button className="btn btn-link" onClick={() => handdeletefav(index)}>
+          </Link>
+          <button className="btn btn-link" onClick={() => handdeletefav(favorite.id)}>
             <i className="bi bi-trash"></i>
           </button>
         </li>
@@ -35,7 +35,6 @@ export const Navbar = () => {
         </button>
         <DropdownMenu />
       </div>
-      
     </nav>
   );
 };
